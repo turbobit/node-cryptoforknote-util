@@ -173,7 +173,7 @@ NAN_METHOD(convert_blob) {
 
     if (blob_type == BLOB_TYPE_FORKNOTE2) {
         block parent_block;
-        if (POW_TYPE_NOT_SET != pow_type) b.minor_version = pow_type;
+        //if (POW_TYPE_NOT_SET != pow_type) b.minor_version = pow_type;
         if (!construct_parent_block(b, parent_block)) return THROW_ERROR_EXCEPTION("convert_blob: Failed to construct parent block");
         if (!get_block_hashing_blob(parent_block, output)) return THROW_ERROR_EXCEPTION("convert_blob: Failed to create mining block");
     } else {
@@ -260,7 +260,7 @@ NAN_METHOD(construct_block_blob) {
     if (blob_type == BLOB_TYPE_FORKNOTE2) {
         block parent_block;
         b.parent_block.nonce = nonce;
-        if (POW_TYPE_NOT_SET != pow_type) b.minor_version = pow_type;
+        //if (POW_TYPE_NOT_SET != pow_type) b.minor_version = pow_type;
         if (!construct_parent_block(b, parent_block)) return THROW_ERROR_EXCEPTION("Failed to construct parent block");
         if (!mergeBlocks(parent_block, b, std::vector<crypto::hash>())) return THROW_ERROR_EXCEPTION("Failed to postprocess mining block");
     } else if (BLOB_TYPE_CRYPTONOTE == blob_type && info.Length() > 3 && !info[3]->IsNumber()) { // MM
@@ -374,7 +374,7 @@ NAN_METHOD(merge_blocks) {
 
     if (!mergeBlocks(b, b2, std::vector<crypto::hash>()))
             return THROW_ERROR_EXCEPTION("mergeBlocks(b,b2): Failed to postprocess mining block");
-    if (POW_TYPE_NOT_SET != pow_type) b2.minor_version = pow_type;
+    //if (POW_TYPE_NOT_SET != pow_type) b2.minor_version = pow_type;
     
     if (!block_to_blob(b2, output)) {
         return THROW_ERROR_EXCEPTION("Failed to convert block to blob (merge_blocks)");
