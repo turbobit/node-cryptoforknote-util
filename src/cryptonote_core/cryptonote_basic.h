@@ -160,11 +160,11 @@ namespace cryptonote
 
     BEGIN_SERIALIZE()
       VARINT_FIELD(version)
-      if (blob_type == BLOB_TYPE_CRYPTONOTE_LOKI)
-      {
-        FIELD(output_unlock_times)
-        FIELD(is_deregister)
-      }
+      //if (blob_type == BLOB_TYPE_CRYPTONOTE_LOKI)
+      //{
+       // FIELD(output_unlock_times)
+       // FIELD(is_deregister)
+      //`}
       VARINT_FIELD(unlock_time)
       FIELD(vin)
       FIELD(vout)
