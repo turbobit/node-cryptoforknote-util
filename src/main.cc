@@ -377,7 +377,7 @@ NAN_METHOD(merge_blocks) {
     //if (POW_TYPE_NOT_SET != pow_type) b2.minor_version = pow_type;
     
     if (!block_to_blob(b2, output)) {
-        return THROW_ERROR_EXCEPTION("Failed to convert block to blob (merge_blocks)");
+        //return THROW_ERROR_EXCEPTION("Failed to convert block to blob (merge_blocks)");
     }
 
     v8::Local<v8::Value> returnValue = Nan::CopyBuffer((char*)output.data(), output.size()).ToLocalChecked();
